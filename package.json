@@ -1,6 +1,6 @@
 {
   "name": "alfred-case-change",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Alfred workflow to change case on selected text, filenames, and more",
   "type": "module",
   "main": "index.js",
