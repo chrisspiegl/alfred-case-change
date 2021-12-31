@@ -1,0 +1,54 @@
+{
+  "name": "alfred-case-change",
+  "version": "0.0.0",
+  "description": "Alfred workflow to change case on selected text, filenames, and more",
+  "type": "module",
+  "main": "index.js",
+  "license": "MIT",
+  "repository": "chrisspiegl/alfred-case-change",
+  "author": {
+    "name": "Chris Spiegl",
+    "email": "chris@chrisspiegl.com",
+    "url": "https://chrisspiegl.com/"
+  },
+  "engines": {
+    "node": ">=14"
+  },
+  "scripts": {
+    "postinstall": "alfy-init",
+    "preuninstall": "alfy-cleanup",
+    "cu": "ncu",
+    "cu:fix": "ncu -u",
+    "test": "xo --fix"
+  },
+  "files": [
+    "icon.png",
+    "info.plist",
+    "index.js"
+  ],
+  "keywords": [
+    "alfred",
+    "workflow",
+    "macos",
+    "mac",
+    "files",
+    "folders",
+    "copy",
+    "pwd",
+    "filename",
+    "filepath",
+    "folderpath"
+  ],
+  "dependencies": {
+    "alfy": "^0.12.2",
+    "change-case": "^4.1.2",
+    "discover-path": "^1.0.0",
+    "lower-case": "^2.0.2",
+    "title-case": "^3.0.3",
+    "upper-case": "^2.0.2"
+  },
+  "devDependencies": {
+    "npm-check-updates": "^12.0.5",
+    "xo": "^0.47.0"
+  }
+}
