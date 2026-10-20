@@ -1,16 +1,16 @@
-import {renameSync} from 'node:fs';
-import alfy from 'alfy';
-import {fileExistsWithCaseSync} from './utils.js';
+import { renameSync } from 'node:fs'
+import alfy from 'alfy'
+import { renameFromPayload } from './rename-files.js'
+import { fileExistsWithCaseSync } from './utils.js'
 
-console.log(alfy.input);
+// Script stdout is the existing Alfred debugger log for the rename payload.
+// eslint-disable-next-line no-console
+console.log(alfy.input)
 
-const inputArgs = JSON.parse(alfy.input);
+const parsed = renameFromPayload(alfy.input, {
+  exists: fileExistsWithCaseSync,
+  renameSync,
+})
 
-for (const element of inputArgs) {
-	if (
-		fileExistsWithCaseSync(element.before)
-    && !fileExistsWithCaseSync(element.after)
-	) {
-		renameSync(element.before, element.after);
-	}
-}
+if (!parsed.ok)
+  console.error('Could not parse the rename payload')
