@@ -10,19 +10,24 @@
     "url": "https://chrisspiegl.com/"
   },
   "license": "MIT",
-  "repository": "chrisspiegl/alfred-case-change",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chrisspiegl/alfred-case-change.git"
+  },
+  "bugs": {
+    "url": "https://github.com/chrisspiegl/alfred-case-change/issues"
+  },
+  "homepage": "https://github.com/chrisspiegl/alfred-case-change#readme",
   "keywords": [
     "alfred",
     "workflow",
     "macos",
     "mac",
-    "files",
-    "folders",
-    "copy",
-    "pwd",
-    "filename",
-    "filepath",
-    "folderpath"
+    "case",
+    "uppercase",
+    "lowercase",
+    "title case",
+    "filename"
   ],
   "main": "index.js",
   "files": [
