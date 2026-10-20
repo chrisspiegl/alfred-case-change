@@ -1,29 +1,40 @@
 # alfred-case-change
 
-> [Alfred](https://alfredapp.com) workflow to change case on selected text, filenames, and more
+Alfred workflow to change the case of selected text, filenames, and the current clipboard item.
 
-<img src="media/screenshot.png" style="width: 100%;">
-
-Change the case of selected text, filenames, and your current clipboard item.
+It runs in Alfred 5 with the Powerpack. Choose a case (title, upper, lower, camel, pascal, sentence, param, or capital). Enter copies the result. Hold Command to paste text into the frontmost app, or to rename files after choosing a name, extension, or both.
 
 ## Install
+
+Requires Node.js 20+ (verified on 24) and [Alfred 5](https://alfredapp.com) with the [Powerpack](https://alfredapp.com/powerpack/).
 
 ```bash
 npm install --global alfred-case-change
 ```
 
-*Requires [Node.js](https://nodejs.org) 14+ and the Alfred [Powerpack](https://alfredapp.com/powerpack/).*
-
 ## Usage
 
 *Careful: processing filenames is not reversible!*
 
-* You can use this workflow as a Universal Action on selected text, invoke the keyword by typing `case` in your Alfred search or in the Alfred File Browser by typing `Case change`.
-* The workflow automatically detects if it's processing files or standard text.
-* When processing files it will ask if you want to change the extension, the filename, or both.
-* When processing files the default action is to copy the new filenames but you can also hold down <kbd>Command</kbd> so that the files are actually renamed (note: this is not reversible so be careful).
-* When processing standard text via the keyword or Universal Action the default action is to copy to clipboard but holding down <kbd>Command</kbd> will paste the case changed text to the front most app.
-* You can filter the case selection by entereing `!title`, `!upp`, etc. after the text or filenames in Alfred Search.
+* You can use this workflow as a Universal Action on selected text, invoke the keyword by typing `case` in Alfred, or open it from the Alfred File Browser by typing `Case change`.
+* The workflow detects whether it is processing files or standard text.
+* When processing files it asks whether to change the extension, the filename, or both.
+* When processing files the default action copies the new filenames. Hold <kbd>Command</kbd> to rename the files on disk.
+* When processing text, the default action copies to the clipboard. Hold <kbd>Command</kbd> to paste the case-changed text into the frontmost app.
+* Filter the case list by entering `!title`, `!upp`, and similar tokens after the text or filenames.
+
+## Maintainer
+
+```bash
+pnpm install
+pnpm lint
+pnpm test
+pnpm release
+```
+
+## Release
+
+From a clean main checkout, `pnpm release` prompts for the version, publishes to npm with pnpm, and creates the GitHub release. Requires npm login and a GitHub token (`GITHUB_TOKEN`) or `gh` auth.
 
 ## Related
 
