@@ -2,7 +2,9 @@ import assert from 'node:assert/strict'
 import { existsSync, mkdtempSync, renameSync, rmSync, writeFileSync } from 'node:fs'
 import { tmpdir } from 'node:os'
 import path from 'node:path'
-import { it } from 'vitest'
+// node:test is the runner. The default config would rewrite this import to vitest.
+// eslint-disable-next-line test/no-import-node-test
+import { it } from 'node:test'
 import { parseRenamePayload, renameFromPayload } from '../src/rename-files.js'
 import { fileExistsWithCaseSync } from '../src/utils.js'
 
@@ -46,7 +48,7 @@ it('does not rename files when JSON.parse fails', () => {
 it('renames from a valid payload', () => {
   withTempDirectory((directory) => {
     const source = path.join(directory, 'Hello.txt')
-    const destination = path.join(directory, 'hello.txt')
+    const destination = path.join(directory, 'renamed.txt')
     writeFileSync(source, 'keep')
 
     const result = renameFromPayload(JSON.stringify([

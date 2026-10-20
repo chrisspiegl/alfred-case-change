@@ -2,7 +2,9 @@ import assert from 'node:assert/strict'
 import { mkdtempSync, rmSync, writeFileSync } from 'node:fs'
 import { tmpdir } from 'node:os'
 import path from 'node:path'
-import { it } from 'vitest'
+// node:test is the runner. The default config would rewrite this import to vitest.
+// eslint-disable-next-line test/no-import-node-test
+import { it } from 'node:test'
 import { buildCaseItems } from '../src/case-output.js'
 
 function withTempDirectory(run) {
